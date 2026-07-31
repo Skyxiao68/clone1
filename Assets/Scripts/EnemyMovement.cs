@@ -1,4 +1,4 @@
-using System;
+ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,7 +13,9 @@ public class EnemyMovement : MonoBehaviour
     public float chaseDistance = 5f; //only start chasing when a certain distance away
     public Transform target;
 
-    public int enemyHealth = 5;
+    public int enemyHealth ;
+
+    public int maxHealth = 3;
     //public GameObject bullet;
     
 
@@ -21,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
     {
         enemy = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        enemyHealth = maxHealth;
     }
 
     void Update()
