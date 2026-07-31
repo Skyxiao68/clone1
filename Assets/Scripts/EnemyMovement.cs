@@ -1,5 +1,6 @@
  using System;
-using Unity.VisualScripting;
+ using System.Collections;
+ using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -14,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
     public Transform target;
 
     public int enemyHealth ;
+    public GameObject damageSquare;
 
     public int maxHealth = 3;
     //public GameObject bullet;
@@ -24,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
         enemy = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         enemyHealth = maxHealth;
+        damageSquare.SetActive(false);
     }
 
     void Update()
@@ -67,6 +70,7 @@ public class EnemyMovement : MonoBehaviour
     public void TakeDamage(int damage)
     {
         enemyHealth -= damage;
+        StartCoroutine(ShowDamageSquare());
         //can set damage in collision 
 
         if (enemyHealth <=0)
@@ -75,7 +79,14 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    
+    IEnumerator ShowDamageSquare()
+    {
+        damageSquare.SetActive(true);
+
+        yield return new WaitForSeconds(0.15f);
+
+        damageSquare.SetActive(false);
+    }
     
     
 }
