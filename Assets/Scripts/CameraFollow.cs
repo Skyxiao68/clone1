@@ -1,25 +1,37 @@
 using System;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
-{
-    public Transform target;
-    public float smoothSpeed = 0.25f; //how quickly the cam catches up to the player
-    //lower=snappier, higher=smoother/laggier
-    public Vector3 offset = new Vector3(0f, 0f, -10f);
+using UnityEngine;
 
-    private Vector3 velocity = Vector3.zero;
+public class CameraRoomFollow : MonoBehaviour
+{
+    public Transform player;
+
+    public float roomWidth = 16f;
+    public float roomHeight = 9f;
+
+    public float moveSpeed = 8f;
+
+    private Vector3 targetPosition;
+
+    void Start()
+    {
+        targetPosition = transform.position;
+    }
 
     void LateUpdate()
     {
-        if (target == null)
-        {
-            return;
-        }
+        int roomX = Mathf.RoundToInt(player.position.x / roomWidth);
+        int roomY = Mathf.RoundToInt(player.position.y / roomHeight);
 
-        Vector3 desiredPosition = target.position + offset;
+        targetPosition = new Vector3(
+            roomX * roomWidth,
+            roomY * roomHeight,
+            transform.position.z);
 
-        transform.position = Vector3.SmoothDamp(transform.position, desiredPosition,
-            ref velocity,smoothSpeed);
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            targetPosition,
+            moveSpeed * Time.deltaTime);
     }
 }

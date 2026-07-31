@@ -66,22 +66,13 @@ public class EnemyMovement : MonoBehaviour
         enemyHealth -= damage;
         //can set damage in collision 
 
-        if (enemyHealth < 0)
+        if (enemyHealth <=0)
         {
             gameObject.SetActive(false);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("Bullet"))
-        {
-            TakeDamage(1);
-            col.gameObject.SetActive(false);
-            Debug.Log("Collided ");
-        }
-        
-    }
+    
     
     
 }

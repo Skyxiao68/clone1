@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public int lives = 3;
     public GameObject[] heartSprites;
 
-    public Button reflectBtn;
+  
 
     void Start()
     {
@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (lives == 0)
             {
-                Death();
+               Debug.Log("You died ");
             }
         }
     }
@@ -73,11 +73,5 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void Death()
-    {
-        if (lives == 0)
-        {
-            SceneManager.LoadScene("DeathScreen");
-        }
-    }
+    
 }
