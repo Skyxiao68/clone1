@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pig Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5167193670355674620, guid: c9fd9b3906ff7094e9428f8990f88010, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 7258332038748005130, guid: 465faecded3041c4e907bd6d9d8fd47a, type: 3}
     - target: {fileID: 5858632327160745435, guid: c9fd9b3906ff7094e9428f8990f88010, type: 3}
       propertyPath: m_Sprite
       value: 

@@ -1,6 +1,6 @@
  using System;
  using System.Collections;
- using Unity.VisualScripting;
+ 
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -18,7 +18,10 @@ public class EnemyMovement : MonoBehaviour
     public GameObject damageSquare;
 
     public int maxHealth = 3;
-    //public GameObject bullet;
+    
+    //Enemy Attack System
+    public float attackedCooldown = 2f;
+    public bool canAttack = true;
     
 
     void Start()
@@ -65,6 +68,45 @@ public class EnemyMovement : MonoBehaviour
     void FixedUpdate()
     {
         enemy.linearVelocity = moveInput * movementSpeed;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && canAttack)
+        {
+            StartCoroutine(AttackPlayer(collision.gameObject));
+        }
+    }
+    
+    IEnumerator AttackPlayer(GameObject player)
+    {
+        canAttack = false;
+
+        // Play fake attack animation
+        StartCoroutine(AttackAnimation());
+
+        // Wait until the sword actually swings
+        yield return new WaitForSeconds(1f);
+
+        PlayerMovement playerScript = player.GetComponent<PlayerMovement>();
+
+       playerScript.TakeDamage(1);
+
+        // Wait before another attack
+        yield return new WaitForSeconds(attackedCooldown);
+
+        canAttack = true;
+    }
+
+    IEnumerator AttackAnimation()
+    {
+         Vector3 originalScale = transform.localScale;
+        
+            transform.localScale = originalScale * 1.5f;
+        
+            yield return new WaitForSeconds(0.2f);
+        
+            transform.localScale = originalScale;
     }
 
     public void TakeDamage(int damage)

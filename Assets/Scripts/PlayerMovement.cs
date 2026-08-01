@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
 
     // Health System
-    public int lives = 3;
+    public int lives = 10;
     public GameObject[] heartSprites;
 
     // Melee Attack System
@@ -20,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isAttacking = false;
     public float attackDuration = 0.3f;
     public float attackTimer = 0f;
+    
+   
+    
 
     void Start()
     {
@@ -101,11 +105,31 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int damage)
+    {
+        if (lives <= 0)
+        {
+            return;
+
+        }
+
+        lives -= damage;
+        heartSprites[lives].SetActive(false);
+
+        if (lives == 0)
+        {
+            Debug.Log("Player died");
+            //Switch scene here to death screen 
+        }
+    }
+    
+
+   
     public void RestoreLives()
     {
-        if (lives < 3)
+        if (lives < 10)
         {
-            lives = 3;
+            lives = 10;
 
             foreach (GameObject heart in heartSprites)
             {

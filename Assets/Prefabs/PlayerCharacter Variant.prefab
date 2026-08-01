@@ -201,9 +201,57 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2505552981997656467}
     - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: lives
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
       propertyPath: melee
       value: 
       objectReference: {fileID: 8150120868961603362}
+    - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: heartSprites.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: 'heartSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4670157216463047725, guid: effa53f8b255d7a4eb915d3967089e1a, type: 3}
+    - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: 'heartSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8308434027552377782, guid: cf3e5733721d5064ea4a2b721cbda776, type: 3}
+    - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: 'heartSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 665485662014373957, guid: 71812564431628943bd15b9c93e4d512, type: 3}
+    - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: 'heartSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1847807604812544054, guid: ef8a0f94a51d2db4cb176545bec38d46, type: 3}
+    - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: 'heartSprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: 7093145747464203416, guid: 73add9183ac33f14a83f123addb2e2b8, type: 3}
+    - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: 'heartSprites.Array.data[5]'
+      value: 
+      objectReference: {fileID: 69361934280595420, guid: de18931424befc74c98ec3f6ef10b871, type: 3}
+    - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: 'heartSprites.Array.data[6]'
+      value: 
+      objectReference: {fileID: 4365286171736256919, guid: 180a74b6ac4f5a44f817ddeaecad4e0e, type: 3}
+    - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: 'heartSprites.Array.data[7]'
+      value: 
+      objectReference: {fileID: 4087113715440283287, guid: dae2520b739e1714cafca79e7e00ee62, type: 3}
+    - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: 'heartSprites.Array.data[8]'
+      value: 
+      objectReference: {fileID: 1601840664679310785, guid: b78097c755f5e684cac6d645e2cac9bf, type: 3}
+    - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: 'heartSprites.Array.data[9]'
+      value: 
+      objectReference: {fileID: 5519083231911082242, guid: 4ed6ce50e09212d4d8c5b200bc41a2a2, type: 3}
     - target: {fileID: 5619538877649975561, guid: f0f63782392f7414993ff28236422877, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter Variant
