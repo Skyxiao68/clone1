@@ -5,10 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - WorldMap
+  - Attack
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
+  - Player
   - Enviroment
   - Water
   - UI

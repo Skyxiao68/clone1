@@ -1,23 +1,29 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement; // add this
 
 public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed = 4f;
+
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Animator animator;
 
-    //Health System
-    public int lives = 3;
+    // Health System
+    public int lives = 10;
     public GameObject[] heartSprites;
 
-    public Button reflectBtn;
+    // Melee Attack System
+    public Transform aim;
+    
+    public GameObject melee;
+    private bool isAttacking = false;
+    public float attackDuration = 0.3f;
+    public float attackTimer = 0f;
+    
+   
+    
 
     void Start()
     {
@@ -27,57 +33,108 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // Rotate the aim object to one of 8 directions
+        if (moveInput != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+
+            // Snap to nearest 45 degrees
+            angle = Mathf.Round(angle / 45f) * 45f;
+
+            // If your sword points UP by default, change this to angle + 90
+            aim.rotation = Quaternion.Euler(0f, 0f, angle+90f);
+        }
+        CheckMeleeTimer();
+    }
+
+    void FixedUpdate()
+    {
         rb.linearVelocity = moveInput * movementSpeed;
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        animator.SetBool("isWalking",true);
-        if (context.canceled)
-        {
-            animator.SetBool("isWalking",false);
-            animator.SetFloat("LastInputX",moveInput.x);
-            animator.SetFloat("LastInputY",moveInput.y);
-        }
         moveInput = context.ReadValue<Vector2>();
-        animator.SetFloat("InputX",moveInput.x);
-        animator.SetFloat("InputY",moveInput.y);
+
+        bool isWalking = moveInput != Vector2.zero;
+        animator.SetBool("isWalking", isWalking);
+
+        animator.SetFloat("InputX", moveInput.x);
+        animator.SetFloat("InputY", moveInput.y);
+
+        if (isWalking)
+        {
+            animator.SetFloat("LastInputX", moveInput.x);
+            animator.SetFloat("LastInputY", moveInput.y);
+        }
+    }
+    
+    public void Attack(InputAction.CallbackContext context)
+    {
+        Debug.Log("Attack test");
+        if (!context.performed)
+            return;
+
+        
+        OnAttack();
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    void OnAttack()
     {
-        if (col.gameObject.CompareTag("Attack"))
+        if (!isAttacking)
         {
-            if (lives > 0)
-            {
-                lives--;
-                heartSprites[lives].SetActive(false);
-            }
+            melee.SetActive(true);
+            isAttacking = true;
+            //Call animator to play melee attack here 
+            
+            
+        }
+    }
 
-            if (lives == 0)
+    void CheckMeleeTimer()
+    {
+        if (isAttacking)
+        {
+            attackTimer += Time.deltaTime;
+            if (attackTimer >= attackDuration)
             {
-                Death();
+                attackTimer = 0;
+                isAttacking = false;
+                melee.SetActive(false);
             }
         }
     }
 
+    public void TakeDamage(int damage)
+    {
+        if (lives <= 0)
+        {
+            return;
+
+        }
+
+        lives -= damage;
+        heartSprites[lives].SetActive(false);
+
+        if (lives == 0)
+        {
+            Debug.Log("Player died");
+            //Switch scene here to death screen 
+        }
+    }
+    
+
+   
     public void RestoreLives()
     {
-        if (lives < 3)
+        if (lives < 10)
         {
-            lives = 3;
+            lives = 10;
+
             foreach (GameObject heart in heartSprites)
             {
                 heart.SetActive(true);
             }
-        }
-    }
-
-    public void Death()
-    {
-        if (lives == 0)
-        {
-            SceneManager.LoadScene("DeathScreen");
         }
     }
 }

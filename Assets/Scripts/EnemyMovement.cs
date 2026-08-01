@@ -1,5 +1,6 @@
-using System;
-using Unity.VisualScripting;
+ using System;
+ using System.Collections;
+ 
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -13,14 +14,22 @@ public class EnemyMovement : MonoBehaviour
     public float chaseDistance = 5f; //only start chasing when a certain distance away
     public Transform target;
 
-    public int enemyHealth = 5;
-    //public GameObject bullet;
+    public int enemyHealth ;
+    public GameObject damageSquare;
+
+    public int maxHealth = 3;
+    
+    //Enemy Attack System
+    public float attackedCooldown = 2f;
+    public bool canAttack = true;
     
 
     void Start()
     {
         enemy = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        enemyHealth = maxHealth;
+        damageSquare.SetActive(false);
     }
 
     void Update()
@@ -61,26 +70,64 @@ public class EnemyMovement : MonoBehaviour
         enemy.linearVelocity = moveInput * movementSpeed;
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && canAttack)
+        {
+            StartCoroutine(AttackPlayer(collision.gameObject));
+        }
+    }
+    
+    IEnumerator AttackPlayer(GameObject player)
+    {
+        canAttack = false;
+
+        // Play fake attack animation
+        StartCoroutine(AttackAnimation());
+
+        // Wait until the sword actually swings
+        yield return new WaitForSeconds(1f);
+
+        PlayerMovement playerScript = player.GetComponent<PlayerMovement>();
+
+       playerScript.TakeDamage(1);
+
+        // Wait before another attack
+        yield return new WaitForSeconds(attackedCooldown);
+
+        canAttack = true;
+    }
+
+    IEnumerator AttackAnimation()
+    {
+         Vector3 originalScale = transform.localScale;
+        
+            transform.localScale = originalScale * 1.5f;
+        
+            yield return new WaitForSeconds(0.2f);
+        
+            transform.localScale = originalScale;
+    }
+
     public void TakeDamage(int damage)
     {
         enemyHealth -= damage;
+        StartCoroutine(ShowDamageSquare());
         //can set damage in collision 
 
-        if (enemyHealth < 0)
+        if (enemyHealth <=0)
         {
             gameObject.SetActive(false);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    IEnumerator ShowDamageSquare()
     {
-        if (col.gameObject.CompareTag("Bullet"))
-        {
-            TakeDamage(1);
-            col.gameObject.SetActive(false);
-            Debug.Log("Collided ");
-        }
-        
+        damageSquare.SetActive(true);
+
+        yield return new WaitForSeconds(0.15f);
+
+        damageSquare.SetActive(false);
     }
     
     
