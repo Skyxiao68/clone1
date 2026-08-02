@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteLibrarySourceAsset
+  m_Library:
+  - m_Name: Idle
+    m_Hash: 1008081451
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Idle 1_0
+      m_Hash: 478939371
+      m_Sprite: {fileID: -2176464878204383778, guid: c32266a598cdd9f4b9cb9c478c38b35b, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2176464878204383778, guid: c32266a598cdd9f4b9cb9c478c38b35b, type: 3}
+    - m_Name: Idle 1_1
+      m_Hash: 730544253
+      m_Sprite: {fileID: 548687955085884545, guid: c32266a598cdd9f4b9cb9c478c38b35b, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 548687955085884545, guid: c32266a598cdd9f4b9cb9c478c38b35b, type: 3}
+    - m_Name: Idle 1_2
+      m_Hash: 847407559
+      m_Sprite: {fileID: 1545194536753506867, guid: c32266a598cdd9f4b9cb9c478c38b35b, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1545194536753506867, guid: c32266a598cdd9f4b9cb9c478c38b35b, type: 3}
+    - m_Name: Idle 1_3
+      m_Hash: 92625233
+      m_Sprite: {fileID: -1481037133, guid: c32266a598cdd9f4b9cb9c478c38b35b, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1481037133, guid: c32266a598cdd9f4b9cb9c478c38b35b, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  - m_Name: Walk
+    m_Hash: 765711723
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Walk 1_0
+      m_Hash: 414562868
+      m_Sprite: {fileID: 7173140865380682376, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7173140865380682376, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_1
+      m_Hash: 800230050
+      m_Sprite: {fileID: -2985974636630278150, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2985974636630278150, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_2
+      m_Hash: 918280984
+      m_Sprite: {fileID: 3529081343899330951, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3529081343899330951, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_3
+      m_Hash: 29158286
+      m_Sprite: {fileID: 137344135334445572, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 137344135334445572, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_4
+      m_Hash: 534281773
+      m_Sprite: {fileID: -724591026598925287, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -724591026598925287, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_5
+      m_Hash: 685723323
+      m_Sprite: {fileID: -8746678741213816811, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8746678741213816811, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_6
+      m_Hash: 836116225
+      m_Sprite: {fileID: -7297914038573512800, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7297914038573512800, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_7
+      m_Hash: 114372503
+      m_Sprite: {fileID: 5832475468008725945, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5832475468008725945, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_8
+      m_Hash: 376320518
+      m_Sprite: {fileID: -9145131690571172945, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -9145131690571172945, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_9
+      m_Hash: 560530064
+      m_Sprite: {fileID: -6884358290803202197, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6884358290803202197, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_10
+      m_Hash: 208449391
+      m_Sprite: {fileID: -770329658, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -770329658, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_11
+      m_Hash: 996909049
+      m_Sprite: {fileID: 1519338111, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1519338111, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_12
+      m_Hash: 576900675
+      m_Sprite: {fileID: 1635495846, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1635495846, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_13
+      m_Hash: 359005909
+      m_Sprite: {fileID: -121484339, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -121484339, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_14
+      m_Hash: 184642422
+      m_Sprite: {fileID: 1764747170, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1764747170, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    - m_Name: Walk 1_15
+      m_Hash: 1007049696
+      m_Sprite: {fileID: 291103989, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 291103989, guid: f2620b6e01804914ca83656989c0592a, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 16
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 639211918265487280
+  m_Version: 1
