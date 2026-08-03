@@ -12,6 +12,17 @@ public class Weapon : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
+            enemy.Knockback(transform.position, 5f);
+            Debug.Log("enemy knocked ");
+        }
+        
+        //Add boss damage 
+        BossEnemyScript boss = col.GetComponent<BossEnemyScript>();
+        if (boss != null)
+        {
+            boss.TakeDamage(damage);
+            
+            
         }
     }
 }

@@ -1,51 +1,52 @@
- using System;
- using System.Collections;
- using System.Security.Cryptography;
- using UnityEngine;
+using System;
+using System.Collections;
+using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class BossEnemyScript : MonoBehaviour
 {
     private Rigidbody2D enemy;
     private Vector2 moveInput;
     private Animator animator;
     private bool chase;
 
+    [Header("Movement")]
     public float movementSpeed = 2f;
-    public float chaseDistance = 5f; //only start chasing when a certain distance away
+    public float chaseDistance = 6f;
     public Transform target;
 
-    public int enemyHealth ;
+    [Header("Health")]
+    public int maxHealth = 30;
+    public int enemyHealth;
     public GameObject damageSquare;
 
-    public int maxHealth = 3;
-    
-    //Enemy Attack System
-    public float attackedCooldown = 2f;
+    [Header("Boss Attack")]
+    public float attackedCooldown = 10f;
     public bool canAttack = true;
-    
-    //Knockback System 
-    private bool isKnockedBack = false;
-    public float knockbackDuration = 0.15f;
 
+    public Transform axePivot;
+    public float spinSpeed = 360f;
+    public float attackDuration = 5f;
+    
+   
 
     void Start()
     {
         enemy = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
         enemyHealth = maxHealth;
+
         damageSquare.SetActive(false);
     }
 
     void Update()
     {
         if (target == null)
-        {
             return;
-        }
 
         float distance = Vector2.Distance(enemy.position, target.position);
-        //Calculate the distance away from player and enemy 
 
+        // Calculate distance between boss and player
         chase = distance <= chaseDistance;
 
         if (chase)
@@ -65,16 +66,10 @@ public class EnemyMovement : MonoBehaviour
             moveInput = Vector2.zero;
             animator.SetBool("isWalking", false);
         }
-
-       
     }
 
     void FixedUpdate()
     {
-        if (isKnockedBack)
-        {
-            return;
-        }
         enemy.linearVelocity = moveInput * movementSpeed;
     }
 
@@ -85,23 +80,20 @@ public class EnemyMovement : MonoBehaviour
             StartCoroutine(AttackPlayer(collision.gameObject));
         }
     }
-    
+
     IEnumerator AttackPlayer(GameObject player)
     {
         canAttack = false;
 
-        // Play fake attack animation
-        StartCoroutine(AttackAnimation());
+        // Play spin attack for boss
+        StartCoroutine(SpinAttack());
 
-        // Wait until the sword actually swings
+        // Wait until the attack connects
         yield return new WaitForSeconds(1f);
 
-        PlayerMovement playerScript = player.GetComponent<PlayerMovement>();
-
-       playerScript.TakeDamage(1);
-       //Adjust Player knockback force 
-       playerScript.Knockback(transform.position,5f);
-       Debug.Log("Player knocked");
+        // PlayerMovement playerScript = player.GetComponent<PlayerMovement>();
+        //
+        // playerScript.TakeDamage(1);
 
         // Wait before another attack
         yield return new WaitForSeconds(attackedCooldown);
@@ -109,24 +101,13 @@ public class EnemyMovement : MonoBehaviour
         canAttack = true;
     }
 
-    IEnumerator AttackAnimation()
-    {
-         Vector3 originalScale = transform.localScale;
-        
-            transform.localScale = originalScale * 1.5f;
-        
-            yield return new WaitForSeconds(0.2f);
-        
-            transform.localScale = originalScale;
-    }
-
     public void TakeDamage(int damage)
     {
         enemyHealth -= damage;
-        StartCoroutine(ShowDamageSquare());
-        //can set damage in collision 
 
-        if (enemyHealth <=0)
+        StartCoroutine(ShowDamageSquare());
+
+        if (enemyHealth <= 0)
         {
             //gameObject.SetActive(false);
             Destroy(gameObject);
@@ -141,26 +122,18 @@ public class EnemyMovement : MonoBehaviour
 
         damageSquare.SetActive(false);
     }
-    
-    public void Knockback(Vector2 attackerPosition, float force)
+
+    IEnumerator SpinAttack()
     {
-        StartCoroutine(KnockbackRoutine(attackerPosition, force));
+        float timer = 0f;
+
+        while (timer < attackDuration)
+        {
+            axePivot.Rotate(0f, 0f, spinSpeed * Time.deltaTime);
+
+            timer += Time.deltaTime;
+
+            yield return null;
+        }
     }
-
-    IEnumerator KnockbackRoutine(Vector2 attackerPosition, float force)
-    {
-        isKnockedBack = true;
-
-        Vector2 direction = ((Vector2)transform.position - attackerPosition).normalized;
-
-        enemy.linearVelocity = direction * force;
-
-        yield return new WaitForSeconds(knockbackDuration);
-
-        enemy.linearVelocity = Vector2.zero;
-
-        isKnockedBack = false;
-    }
-    
-    
 }
