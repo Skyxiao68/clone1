@@ -100,7 +100,7 @@ public class EnemyMovement : MonoBehaviour
 
        playerScript.TakeDamage(1);
        //Adjust Player knockback force 
-       playerScript.Knockback(transform.position,5f);
+       playerScript.Knockback(transform.position,4f);
        Debug.Log("Player knocked");
 
         // Wait before another attack
