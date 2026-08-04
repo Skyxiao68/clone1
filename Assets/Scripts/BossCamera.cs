@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using Cinemachine;
 using System.Collections;
 
@@ -14,7 +14,7 @@ public class BossCamera : MonoBehaviour
     public float bossZoomSize = 4f;
     public float playerNormalSize = 7f;
     
-    private CinemachineBrain brain;
+   // private CinemachineBrain brain;
     private float originalPlayerSize;
     private Coroutine currentTransition;
     
@@ -79,3 +79,4 @@ public class BossCamera : MonoBehaviour
         currentTransition = null;
     }
 }
+*/
