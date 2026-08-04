@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,15 +23,24 @@ public class PlayerMovement : MonoBehaviour
     public float attackDuration = 0.3f;
     public float attackTimer = 0f;
     
-   
-    
+    //KnockBack System 
+    private bool isKnockedBack = false;
 
+    public float knockbackForce = 8f;
+    public float knockbackDuration = 0.2f;
+    
+    //Player Temporary Invincibility
+    private bool invincible = false;
+    public float invincibilityTime = 0.5f;
+    
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
+    
     void Update()
     {
         // Rotate the aim object to one of 8 directions
@@ -49,6 +59,11 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isKnockedBack)
+        {
+            return;
+        }
+        
         rb.linearVelocity = moveInput * movementSpeed;
     }
 
@@ -107,11 +122,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (lives <= 0)
+        
+        if (lives <= 0 || invincible)
         {
             return;
 
         }
+
+        StartCoroutine(Invincibility());
 
         lives -= damage;
         heartSprites[lives].SetActive(false);
@@ -122,6 +140,35 @@ public class PlayerMovement : MonoBehaviour
             //Switch scene here to death screen 
         }
     }
+    
+    IEnumerator Invincibility()
+    {
+        invincible = true;
+
+        yield return new WaitForSeconds(invincibilityTime);
+
+        invincible = false;
+    }
+    
+    public void Knockback(Vector2 attackerPosition, float force)
+    {
+        StartCoroutine(KnockbackRoutine(attackerPosition, force));
+    }
+
+    IEnumerator KnockbackRoutine(Vector2 attackerPosition, float force)
+    {
+        isKnockedBack = true;
+
+        Vector2 direction = ((Vector2)transform.position - attackerPosition).normalized;
+
+        rb.linearVelocity = direction * force;
+
+        yield return new WaitForSeconds(knockbackDuration);
+
+        rb.linearVelocity = Vector2.zero;
+        isKnockedBack = false;
+    }
+    
     
 
    

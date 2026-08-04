@@ -1,7 +1,7 @@
  using System;
  using System.Collections;
- 
-using UnityEngine;
+ using System.Security.Cryptography;
+ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -23,6 +23,10 @@ public class EnemyMovement : MonoBehaviour
     public float attackedCooldown = 2f;
     public bool canAttack = true;
     
+    //Knockback System 
+    private bool isKnockedBack = false;
+    public float knockbackDuration = 0.15f;
+
 
     void Start()
     {
@@ -67,6 +71,10 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isKnockedBack)
+        {
+            return;
+        }
         enemy.linearVelocity = moveInput * movementSpeed;
     }
 
@@ -91,6 +99,9 @@ public class EnemyMovement : MonoBehaviour
         PlayerMovement playerScript = player.GetComponent<PlayerMovement>();
 
        playerScript.TakeDamage(1);
+       //Adjust Player knockback force 
+       playerScript.Knockback(transform.position,4f);
+       Debug.Log("Player knocked");
 
         // Wait before another attack
         yield return new WaitForSeconds(attackedCooldown);
@@ -117,7 +128,8 @@ public class EnemyMovement : MonoBehaviour
 
         if (enemyHealth <=0)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 
@@ -128,6 +140,26 @@ public class EnemyMovement : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
 
         damageSquare.SetActive(false);
+    }
+    
+    public void Knockback(Vector2 attackerPosition, float force)
+    {
+        StartCoroutine(KnockbackRoutine(attackerPosition, force));
+    }
+
+    IEnumerator KnockbackRoutine(Vector2 attackerPosition, float force)
+    {
+        isKnockedBack = true;
+
+        Vector2 direction = ((Vector2)transform.position - attackerPosition).normalized;
+
+        enemy.linearVelocity = direction * force;
+
+        yield return new WaitForSeconds(knockbackDuration);
+
+        enemy.linearVelocity = Vector2.zero;
+
+        isKnockedBack = false;
     }
     
     
