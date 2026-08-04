@@ -7,6 +7,8 @@ public class MusicManager : MonoBehaviour
 
     public Slider volumeSlider;
 
+    public AudioSource backgroundMusic;
+
     private void Awake()
     {
         // Singleton
@@ -30,6 +32,12 @@ public class MusicManager : MonoBehaviour
 
         // Set slider position
         volumeSlider.value = volume;
+
+        // Play music if it isn't already playing
+        /*if (!backgroundMusic.isPlaying)
+        {
+            backgroundMusic.Play();
+        } */
     }
 
     public void ChangeVolume(float volume)
@@ -40,6 +48,7 @@ public class MusicManager : MonoBehaviour
         // Save it
         PlayerPrefs.SetFloat("MasterVolume", volume);
         PlayerPrefs.Save();
+
     }
 
     public void ToggleMute()
@@ -54,6 +63,17 @@ public class MusicManager : MonoBehaviour
             AudioListener.volume = 1;
             volumeSlider.value = 1;
         }
+    }
+
+    public void StopMusic()
+    {
+        backgroundMusic.Stop();
+    }
+
+    public void PlayMusic()
+    {
+        if (!backgroundMusic.isPlaying)
+            backgroundMusic.Play();
     }
 
 }
