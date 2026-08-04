@@ -14,6 +14,13 @@ public class Interactables : MonoBehaviour
 
     public CollectibleType type;
 
+    AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
 
     {
@@ -23,25 +30,28 @@ public class Interactables : MonoBehaviour
         switch(type)
         {
             case CollectibleType.Triforce:
-                GameManager.Instance.triforce++;
+                GameManager.Instance.AddTriforce();
                 break;
 
             case CollectibleType.Bomb:
-                GameManager.Instance.bombs++;
+                GameManager.Instance.AddBomb();
                 break;
 
             case CollectibleType.Key:
-                GameManager.Instance.keys++;
+                GameManager.Instance.AddKey();
                 break;
 
             case CollectibleType.Chest:
-                GameManager.Instance.chests++;
+                GameManager.Instance.AddChest();
                 break;
 
 
         }
 
-        GameManager.Instance.UpdateUI();
+        if (audioSource != null)
+            AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
+
+        //SGameManager.Instance.UpdateUI();
         Destroy(gameObject);
     }
 

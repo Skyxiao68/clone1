@@ -17,8 +17,66 @@ public class GameManager : MonoBehaviour
    
     public void Awake()
     {
-        Instance = this;
+        //Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
     }
+
+    private void start()
+    {
+        UpdateUI();
+    }
+
+    public void AddTriforce()
+    {
+        triforce++;
+        UpdateUI();
+    }
+
+
+    public void AddBomb()
+    {
+        bombs++;
+        UpdateUI();
+    }
+
+
+    public void AddKey()
+    {
+        keys++;
+        UpdateUI();
+    }
+
+
+    public void AddChest()
+    {
+        chests++;
+        UpdateUI();
+    }
+
+    public bool UseBomb()
+    {
+        if (bombs <= 0)
+            return false;
+
+        bombs--;
+        UpdateUI();
+        return true;
+    }
+
+    public bool UseKey()
+    {
+        if (keys <= 0)
+            return false;
+
+        keys--;
+        UpdateUI();
+        return true;
+    }
+
 
     public void UpdateUI()
     {
