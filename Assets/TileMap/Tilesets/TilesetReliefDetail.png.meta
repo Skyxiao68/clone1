@@ -900,28 +900,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesetReliefDetail_48
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 72
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 33f87c203c939834dbc056b73eed84eb
-      internalID: -1393875898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: TilesetReliefDetail_34
       rect:
         serializedVersion: 2
@@ -1098,28 +1076,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesetReliefDetail_42
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 72
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d5cf35d56502d454e8fd284de9c47228
-      internalID: -1540451943
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: TilesetReliefDetail_43
       rect:
         serializedVersion: 2
@@ -1181,28 +1137,6 @@ TextureImporter:
       bones: []
       spriteID: 21aee8d09afe6e74294953ebbe1eb000
       internalID: -330302458
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TilesetReliefDetail_47
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 72
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88f77c8529baf13428ee943d14fc4eb0
-      internalID: -314405106
       vertices: []
       indices: 
       edges: []
@@ -1274,72 +1208,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesetReliefDetail_52
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 56
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 64059812fade9554cb0ac3640b21100a
-      internalID: -1746681235
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TilesetReliefDetail_53
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 56
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da08a2c5c39303e4c960d453c8342a1e
-      internalID: -244380667
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TilesetReliefDetail_54
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 56
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a18c8ff40b2d5e146a3f8bb29e90ece1
-      internalID: 1351708101
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: TilesetReliefDetail_55
       rect:
         serializedVersion: 2
@@ -1406,57 +1274,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesetReliefDetail_58
+      name: TilesetReliefDetail_60
       rect:
         serializedVersion: 2
         x: 48
         y: 40
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 422f44759c9c34644a215bcd0198789a
-      internalID: -888531159
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TilesetReliefDetail_59
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 40
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05ae9fd577e02fd4e8d8c92d854a95fd
-      internalID: 424585321
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TilesetReliefDetail_60
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 40
-        width: 16
-        height: 16
+        width: 48
+        height: 41
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
