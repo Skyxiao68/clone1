@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Animator animator;
+    public GameObject player;
 
     // Health System
     public int lives = 10;
@@ -38,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        melee.SetActive(false);
+    
     }
 
     
@@ -98,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAttacking)
         {
-            MusicManager.Instance.PlaySound(MusicManager.Instance.attackSound);
+           // MusicManager.Instance.PlaySound(MusicManager.Instance.attackSound);
             melee.SetActive(true);
             isAttacking = true;
             //Call animator to play melee attack here 
@@ -139,6 +142,9 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("Player died");
             //Switch scene here to death screen 
+            player.SetActive(false);
+            Application.Quit();
+            
         }
     }
     
