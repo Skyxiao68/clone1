@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     public TMP_Text bombText;
     public TMP_Text keyText;
     public TMP_Text chestText;
+    
+    public int keyLocksDestroyed = 0;
+    [SerializeField] private GameObject objectToDisable; 
    
     public void Awake()
     {
@@ -85,4 +88,18 @@ public class GameManager : MonoBehaviour
         keyText.text = keys + "/3";
         chestText.text = chests + "/4";
     }
+
+    
+
+public void OnKeyLockDestroyed()
+{
+    keyLocksDestroyed++;
+    
+    if (keyLocksDestroyed >= 4 && objectToDisable != null)
+    {
+        objectToDisable.SetActive(false);
+    }
+}
+
+
 }
