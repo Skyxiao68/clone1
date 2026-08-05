@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
     //Player Temporary Invincibility
     private bool invincible = false;
     public float invincibilityTime = 0.5f;
+
+    public GameObject deathCanvas; 
     
     
     void Start()
@@ -145,12 +147,24 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Player died");
 
             player.SetActive(false);
-
-            gameOverPanel.SetActive(true);
-
-            Time.timeScale = 0f;
-
+            
+            Die();
+            
         }
+    }
+    
+    void Die()
+    {
+        Time.timeScale = 0f; 
+      
+        this.enabled = false;
+    
+    
+        if (deathCanvas != null)
+        {
+            deathCanvas.SetActive(true);
+        }
+    
     }
     
     IEnumerator Invincibility()

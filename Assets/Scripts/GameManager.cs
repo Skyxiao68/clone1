@@ -83,10 +83,10 @@ public class GameManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        triforceText.text = triforce + "/3";
+        triforceText.text = triforce + "/1";
         bombText.text = bombs.ToString();
-        keyText.text = keys + "/3";
-        chestText.text = chests + "/4";
+        keyText.text = keys + "/4";
+        chestText.text = chests + "/5";
     }
 
     

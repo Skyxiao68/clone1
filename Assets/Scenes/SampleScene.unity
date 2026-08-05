@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &61389506
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1911,6 +1911,8 @@ MonoBehaviour:
   bombText: {fileID: 747556523}
   keyText: {fileID: 114468780}
   chestText: {fileID: 1341036295}
+  keyLocksDestroyed: 0
+  objectToDisable: {fileID: 0}
 --- !u!4 &479450915
 Transform:
   m_ObjectHideFlags: 0
@@ -5417,7 +5419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1493533821
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5837,6 +5839,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MusicManager
   volumeSlider: {fileID: 0}
   backgroundMusic: {fileID: 0}
+  sfxSource: {fileID: 0}
+  attackSound: {fileID: 0}
+  hurtSound: {fileID: 0}
 --- !u!82 &1655270236
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5966,7 +5971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1708481263
 RectTransform:
   m_ObjectHideFlags: 0
