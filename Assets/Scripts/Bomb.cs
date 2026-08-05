@@ -2,24 +2,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    /*public float timer = 2f;
-    public GameObject explosion;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        Invoke(nameof(Explode), timer);
-
-    }
-
-
-    void Explode()
-    {
-        Instantiate(explosion, transform.position, Quaternion.identity);
-
-        Destroy(gameObject);
-    }
-}*/
+  
     public float timer = 2f;
 
     public GameObject explosionEffect;
@@ -58,5 +41,21 @@ public class Bomb : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Attack"))
+        {
+            EnemyMovement enemy = other.GetComponent<EnemyMovement>();
+
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+
+            // Destroy the bomb after damaging the enemy
+            Destroy(gameObject);
+        }
     }
 }
