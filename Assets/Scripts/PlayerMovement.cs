@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     private Animator animator;
     public GameObject player;
+    public GameObject gameOverPanel;
 
     // Health System
     public int lives = 10;
@@ -42,7 +43,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         melee.SetActive(false);
-    
+        gameOverPanel.SetActive(false);
+
     }
 
     
@@ -140,10 +142,10 @@ public class PlayerMovement : MonoBehaviour
         lives -= damage;
         heartSprites[lives].SetActive(false);
 
-        if (lives == 0)
+        if (lives <= 0)
         {
             Debug.Log("Player died");
-            //Switch scene here to death screen 
+
             player.SetActive(false);
             
             Die();
