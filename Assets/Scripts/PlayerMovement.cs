@@ -98,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAttacking)
         {
+            MusicManager.Instance.PlaySound(MusicManager.Instance.attackSound);
             melee.SetActive(true);
             isAttacking = true;
             //Call animator to play melee attack here 
