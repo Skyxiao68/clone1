@@ -65139,7 +65139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1071485744
 RectTransform:
   m_ObjectHideFlags: 0
@@ -65626,7 +65626,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6314790037679231206, guid: fa909a2e54c5ec94fae0ea2b43409cb6, type: 3}
-      propertyPath: deathCanvas
+      propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 119088070}
     - target: {fileID: 6314790037679231206, guid: fa909a2e54c5ec94fae0ea2b43409cb6, type: 3}
