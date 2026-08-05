@@ -209,6 +209,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4664787137351663444}
     - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1098026829230039355}
+    - target: {fileID: 1541006595725707476, guid: f0f63782392f7414993ff28236422877, type: 3}
       propertyPath: attackTimer
       value: 1
       objectReference: {fileID: 0}
@@ -226,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7397062885991164346, guid: f0f63782392f7414993ff28236422877, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7397062885991164346, guid: f0f63782392f7414993ff28236422877, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_ActionId
@@ -271,6 +275,10 @@ PrefabInstance:
     - target: {fileID: 7397062885991164346, guid: f0f63782392f7414993ff28236422877, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_ActionId
       value: 69fe8a56-f9ab-49df-9f2a-c9cf7092aa15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7397062885991164346, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionId
+      value: c24df0b2-89e6-4338-9858-621c96c84251
       objectReference: {fileID: 0}
     - target: {fileID: 7397062885991164346, guid: f0f63782392f7414993ff28236422877, type: 3}
       propertyPath: m_ActionEvents.Array.data[16].m_ActionId
@@ -319,6 +327,10 @@ PrefabInstance:
     - target: {fileID: 7397062885991164346, guid: f0f63782392f7414993ff28236422877, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_ActionName
       value: Player/Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 7397062885991164346, guid: f0f63782392f7414993ff28236422877, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionName
+      value: 'Player/UseBomb[/Keyboard/e]'
       objectReference: {fileID: 0}
     - target: {fileID: 7397062885991164346, guid: f0f63782392f7414993ff28236422877, type: 3}
       propertyPath: m_ActionEvents.Array.data[16].m_ActionName
