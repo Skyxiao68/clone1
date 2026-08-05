@@ -26,6 +26,8 @@ public class BossEnemyScript : MonoBehaviour
     public Transform axePivot;
     public float spinSpeed = 360f;
     public float attackDuration = 5f;
+
+    public GameObject winCanvas; 
     
    
 
@@ -111,8 +113,25 @@ public class BossEnemyScript : MonoBehaviour
         {
             //gameObject.SetActive(false);
             Destroy(gameObject);
+            Die(); 
         }
     }
+
+    
+    public void Die()
+    {
+        Time.timeScale = 0f; 
+      
+        this.enabled = false;
+    
+    
+        if (winCanvas != null)
+        {
+            winCanvas.SetActive(true);
+        }
+    
+    }
+    
 
     IEnumerator ShowDamageSquare()
     {

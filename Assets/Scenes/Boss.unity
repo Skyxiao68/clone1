@@ -24238,6 +24238,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 976795803}
     - target: {fileID: 6314790037679231206, guid: fa909a2e54c5ec94fae0ea2b43409cb6, type: 3}
+      propertyPath: deathCanvas
+      value: 
+      objectReference: {fileID: 1249643458}
+    - target: {fileID: 6314790037679231206, guid: fa909a2e54c5ec94fae0ea2b43409cb6, type: 3}
       propertyPath: 'heartSprites.Array.data[0]'
       value: 
       objectReference: {fileID: 964867237}
@@ -29792,6 +29796,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1985880009}
     - target: {fileID: 7033147860650849211, guid: 069da5fcac2819044bad263f1458fe20, type: 3}
+      propertyPath: winCanvas
+      value: 
+      objectReference: {fileID: 1738266854}
+    - target: {fileID: 7033147860650849211, guid: 069da5fcac2819044bad263f1458fe20, type: 3}
       propertyPath: chaseDistance
       value: 40.83
       objectReference: {fileID: 0}
@@ -30505,7 +30513,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 520019353}
-  - {fileID: 2035811549}
   - {fileID: 831953589}
   - {fileID: 1915511852}
   - {fileID: 1597682371}
