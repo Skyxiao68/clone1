@@ -65626,7 +65626,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6314790037679231206, guid: fa909a2e54c5ec94fae0ea2b43409cb6, type: 3}
-      propertyPath: gameOverPanel
+      propertyPath: deathCanvas
       value: 
       objectReference: {fileID: 119088070}
     - target: {fileID: 6314790037679231206, guid: fa909a2e54c5ec94fae0ea2b43409cb6, type: 3}
