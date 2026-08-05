@@ -9,6 +9,12 @@ public class MusicManager : MonoBehaviour
 
     public AudioSource backgroundMusic;
 
+    public AudioSource sfxSource;
+
+    [Header("Sound Effects")]
+    public AudioClip attackSound;
+    public AudioClip hurtSound;
+
     private void Awake()
     {
         // Singleton
@@ -24,6 +30,7 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
+       // playerPrefs.DeleteAll();
         // Load saved volume
         float volume = PlayerPrefs.GetFloat("MasterVolume", 1f);
 
@@ -38,6 +45,20 @@ public class MusicManager : MonoBehaviour
         {
             backgroundMusic.Play();
         } */
+    }
+
+    /* void update
+     {
+         Debug.Log(AudioListner.volume);
+     }
+    */
+
+    public void PlaySound(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            sfxSource.PlayOneShot(clip);
+        }
     }
 
     public void ChangeVolume(float volume)
@@ -65,7 +86,7 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public void StopMusic()
+   public void StopMusic()
     {
         backgroundMusic.Stop();
     }
@@ -75,5 +96,6 @@ public class MusicManager : MonoBehaviour
         if (!backgroundMusic.isPlaying)
             backgroundMusic.Play();
     }
+   
 
 }
